@@ -1,31 +1,30 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Image, TouchableHighlight } from 'react-native';
-import Card from '../components/card.js';
+import Button from 'react-native-button';
 import Grid from '../components/grid.js';
-// import App from '../App.js';
 
 
 class StartGame extends Component {
-  // headerLeft gets rid of the back button, so that the game can be completed before it returns to home
   static navigationOptions = {
-    title: 'StartGame',
+    title: 'Stressed',
     headerLeft: null,
   }
+  
   render() {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-        {/* Temporary here. Used to check whether I can return to home screen since I removed back button*/}
-        {/* Pressing the image will return to home. Need to change it to return once game ends. */}
-        <Grid />
+        <Grid navigation={() => { this.props.navigation }}/>
+        <Button
+          onPress={() => navigate('StartGame')}
+          containerStyle={styles.buttonContainer}
+          style={styles.button}>
+          Restart Game
+        </Button>
       </View>
     );
   }
 }
-
-// StartGame.navigationOptions = {
-//   title: 'StartGame'
-// };
 
 export default StartGame;
 
@@ -42,10 +41,15 @@ const styles = StyleSheet.create({
     height: 45,
     overflow: 'hidden',
     borderRadius: 4,
-    backgroundColor: 'green'
+    backgroundColor: 'green',
+    width: 200,
   },
   button: {
     fontSize: 20,
-    color: 'white'
+    color: 'white',
+    position: 'absolute',
+    textAlign: 'center',
+    left: 42,
+    
   },
 });

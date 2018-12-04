@@ -12,7 +12,7 @@ class HomeScreen extends Component {
       <View style={styles.container}>
         <Text style={{ fontSize: 50, paddingBottom: 10 }}>Memory Game</Text>
         <Button
-          onPress={() => navigate('StartGame')}
+          onPress={() => navigate('CreateUser')}
           containerStyle={styles.buttonContainer}
           style={styles.button}>
           Start Game

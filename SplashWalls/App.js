@@ -14,6 +14,8 @@ import HomeScreen from './screens/homeScreen.js';
 import HighScores from './screens/highScores.js';
 import About from './screens/about.js';
 import StartGame from './screens/startGame.js';
+import CreateUser from './screens/createUser.js';
+import Grid from './components/grid.js';
 
 // const instructions = Platform.select({
 //   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -41,6 +43,12 @@ const AppStackNavigator = createStackNavigator({
   },
   About: {
     screen: About,
+  },
+  CreateUser: {
+    screen: CreateUser,
+  },
+  Grid: {
+    screen: Grid,
   }
 });
 

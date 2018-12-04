@@ -63,6 +63,7 @@ class Grid extends Component {
   // }
 
   render() {
+    const { navigate } = this.props.navigation;
     const cardImages = [
       ['./img/Card_diamond.png', require('./img/Card_diamond.png')],
       ['./img/Card_spade.png', require('./img/Card_spade.png')],
@@ -76,7 +77,6 @@ class Grid extends Component {
     let gridItems = [];
     for (let i = 0; i < 16; i++) {
       const currentImage = cardImages[this.chooseCard(cardImages.length)];
-      // console.log(cardImages[0]);
       if (this.state.hash[currentImage[0]] !== undefined && this.state.hash[currentImage[0]] < 2) {
         gridItems.push(<Card key={i} value={currentImage[1]} img={currentImage[0]} buttonPress={this.buttonPress} isDisplayed={this.state.isDisplayed}/>);
         let currentState = this.state;
@@ -91,8 +91,11 @@ class Grid extends Component {
         i -= 1;
       }
     }
+    
     return (
-      <View style={styles.gridContainer}>{gridItems}</View>
+      <View style={styles.pageContainer}>
+        <View style={styles.gridContainer}>{gridItems}</View>
+      </View>
     );
   }
 }
@@ -100,13 +103,27 @@ class Grid extends Component {
 export default Grid;
 
 const styles = StyleSheet.create({
-  gridContainer: {
-    flex: 1,
+  pageContainer: {
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  gridContainer: {
+    marginTop: 150,
+    flex: 1,
     flexDirection: 'row',
     flexWrap: 'wrap',
-    width: 136,
-    height: 42,
+    width: 256,
+  },
+  buttonContainer: {
+    margin: 2,
+    padding: 10,
+    height: 45,
+    overflow: 'hidden',
+    borderRadius: 4,
+    backgroundColor: 'green'
+  },
+  button: {
+    fontSize: 20,
+    color: 'white'
   },
 });

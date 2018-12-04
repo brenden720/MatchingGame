@@ -91,10 +91,9 @@ export default Card;
 
 const styles = StyleSheet.create({
   cardImage: {
-    width: 60,
-    height: 84,
+    width: 30,
+    height: 42,
     margin: 2,
-    borderRadius: 5,
   },
 });
 

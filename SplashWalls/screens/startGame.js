@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Image, TouchableHighlight } from 'react-native';
+import Card from '../components/card.js';
+import Grid from '../components/grid.js';
 // import App from '../App.js';
 
 
@@ -15,12 +17,7 @@ class StartGame extends Component {
       <View style={styles.container}>
         {/* Temporary here. Used to check whether I can return to home screen since I removed back button*/}
         {/* Pressing the image will return to home. Need to change it to return once game ends. */}
-        <TouchableHighlight onPress={() => navigate('HomeScreen')}>
-        <Image 
-          style={{ width: 50, height: 50 }}
-          source={require('./img/suit-of-spades-145116_1280.png')} 
-        />
-        </TouchableHighlight>
+        <Grid />
       </View>
     );
   }
